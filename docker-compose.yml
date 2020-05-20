@@ -1,10 +1,13 @@
 version: "3.7"
 services:
+
   rabbitmq3:
     image: rabbitmq:3-management
     environment:
       RABBITMQ_ERLANG_COOKIE: 'secret-cookie-here'
-   volumes:
-     - ./db-data:/var/lib/rabbitmq
+    volumes:
+      - ./db-data:/var/lib/rabbitmq
     ports:
-      - 15672:15672
+      - 5672:5672
+      - 8080:15672
+      - 25676:25676
